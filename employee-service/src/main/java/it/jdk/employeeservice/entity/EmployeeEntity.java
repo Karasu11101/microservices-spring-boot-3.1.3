@@ -1,25 +1,22 @@
-package it.jdk.departmentservice.model;
+package it.jdk.employeeservice.entity;
 
-public class Employee {
+import jakarta.persistence.*;
+
+@Entity(name = "Employee")
+@Table(name = "employee")
+@SequenceGenerator(name = "employee_generator", sequenceName = "employee_generator", initialValue = 1, allocationSize = 1)
+public class EmployeeEntity {
 
     private Long id;
     private String name;
     private int age;
     private String position;
-    private Department department;
+    private Long departmentId;
     private int version;
 
-    public Employee() {}
-
-    public Employee(Long id, String name, int age, String position, Department department, int version) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.position = position;
-        this.department = department;
-        this.version = version;
-    }
-
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(generator = "employee_generator", strategy = GenerationType.SEQUENCE)
     public Long getId() {
         return id;
     }
@@ -28,6 +25,7 @@ public class Employee {
         this.id = id;
     }
 
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -36,6 +34,7 @@ public class Employee {
         this.name = name;
     }
 
+    @Column(name = "age")
     public int getAge() {
         return age;
     }
@@ -44,6 +43,7 @@ public class Employee {
         this.age = age;
     }
 
+    @Column(name = "position")
     public String getPosition() {
         return position;
     }
@@ -52,14 +52,17 @@ public class Employee {
         this.position = position;
     }
 
-    public Department getDepartment() {
-        return department;
+    @Column(name = "department_id")
+    public Long getDepartmentId() {
+        return departmentId;
     }
 
-    public void setDepartment(Department department) {
-        this.department = department;
+    public void setDepartmentId(Long departmentId) {
+        this.departmentId = departmentId;
     }
 
+    @Version
+    @Column(name = "version")
     public int getVersion() {
         return version;
     }

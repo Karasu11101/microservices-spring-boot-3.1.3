@@ -1,11 +1,70 @@
 package it.jdk.employeeservice.model;
 
-/**
- * Record keyword is used to build an immutable class with constructor, setters and getters automatically provided
- * @param id employee's id
- * @param departmentId employee department's id
- * @param name employee's name
- * @param age employee's age
- * @param position employee's position in their department
- */
-public record Employee(Long id, Long departmentId, String name, int age, String position) {}
+public class Employee {
+
+    private Long id;
+    private String name;
+    private int age;
+    private String position;
+    private Long departmentId;
+    private int version;
+
+    public Employee() {}
+
+    public Employee(Long id, String name, int age, String position, Long departmentId, int version) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.position = position;
+        this.departmentId = departmentId;
+        this.version = version;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public Long getDepartmentId() {
+        return departmentId;
+    }
+
+    public void setDepartmentId(Long departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+}

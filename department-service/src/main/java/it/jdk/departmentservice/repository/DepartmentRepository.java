@@ -1,26 +1,15 @@
 package it.jdk.departmentservice.repository;
 
-import it.jdk.departmentservice.model.Department;
+import it.jdk.departmentservice.entity.DepartmentEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-public class DepartmentRepository {
+public interface DepartmentRepository extends JpaRepository<DepartmentEntity, Long> {
 
-    private List<Department> departments = new ArrayList<>();
-
-    public Department addDepartment(Department department) {
-        departments.add(department);
-        return department;
-    }
-
-    public Department findById(Long id) {
-        return departments.stream().filter(department -> department.getId().equals(id)).findFirst().orElseThrow();
-    }
-
-    public List<Department> findAll() {
-        return departments;
-    }
+    Optional<DepartmentEntity> findById(Long id);
+    List<DepartmentEntity> findAll();
 }

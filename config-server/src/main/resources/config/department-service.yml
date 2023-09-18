@@ -10,3 +10,9 @@ management:
   tracing:
     sampling:
       probability: 1.0
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/microservices
+    username: postgres
+    password: postgres

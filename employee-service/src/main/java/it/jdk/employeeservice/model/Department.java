@@ -1,4 +1,4 @@
-package it.jdk.departmentservice.model;
+package it.jdk.employeeservice.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,15 +6,14 @@ import java.util.List;
 public class Department {
     private Long id;
     private String name;
-    private List<Employee> employees = new ArrayList<>();
+//    private List<Employee> employees = new ArrayList<>();
     private int version;
 
     public Department() {}
 
-    public Department(Long id, String name, int version) {
+    public Department(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.version = version;
     }
 
     public Long getId() {
@@ -33,13 +32,13 @@ public class Department {
         this.name = name;
     }
 
-    public List<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
-    }
+//    public List<Employee> getEmployees() {
+//        return employees;
+//    }
+//
+//    public void setEmployees(List<Employee> employees) {
+//        this.employees = employees;
+//    }
 
     public int getVersion() {
         return version;
@@ -54,7 +53,6 @@ public class Department {
         return "Department{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", employees=" + employees +
                 '}';
     }
 }

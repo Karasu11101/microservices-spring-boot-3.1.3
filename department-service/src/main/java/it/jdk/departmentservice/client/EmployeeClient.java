@@ -16,5 +16,5 @@ public interface EmployeeClient {
      * @return a list of employees belonging to the specified department
      */
     @GetExchange("employee/department/{departmentId}")
-    public List<Employee> findByDepartment(@PathVariable("departmentId") Long departmentId);
+    public List<Employee> findByDepartmentId(@PathVariable("departmentId") Long departmentId);
 }
